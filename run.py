@@ -306,7 +306,7 @@ class wordcloud_make():
 if __name__ == '__main__':
     time.sleep(1)
     print('Starting...')
-    time.sleep(3)
+    time.sleep(1)
     '''
     +=====================================+
     |        Python图形用户界面            
