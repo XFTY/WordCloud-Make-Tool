@@ -106,17 +106,14 @@ try:
     from alive_progress import alive_bar
 except:
     if messagebox.askquestion('Warning!','检测到此电脑未安装第三方依赖库，是否需要安装？') == 'yes':
-        try:
-            print('正在安装中文分词库...')
-            os.system('pip3 install jieba')
-            print('正在安装词云库...')
-            os.system('pip3 install wordcloud')
-            print('正在安装动态进度条...')
-            os.system('pip3 install alive_progress')
-            messagebox.askquestion('Finish',"安装完成！")
-            sys.exit()
-        except:
-            messagebox.showerror('无法安装','请将Python解释器加入系统环境变量!')
+        print('正在安装中文分词库...')
+        os.system('pip3 install jieba')
+        print('正在安装词云库...')
+        os.system('pip3 install wordcloud')
+        print('正在安装动态进度条...')
+        os.system('pip3 install alive_progress')
+        messagebox.askquestion('Finish',"安装完成！")
+        sys.exit()
     else:
         sys.exit()
 finally:
