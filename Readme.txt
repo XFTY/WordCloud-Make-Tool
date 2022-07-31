@@ -42,3 +42,5 @@ Python Wordcloud Make Tools 中文命令手册：
                             pip3 install wordcloud
                             pip3 install alive_progress
                         
+6.团队：
+        貌似......只有一个人。
