@@ -1,6 +1,6 @@
 2022, A.S.C Team
-(WMT) Wordcloud Make Tool, 2022, version:"1.4"(Beta-Version)
-(PGS) PythonGUIsupport version:"1.12.84"(Alpha-Version)
+(WMT) Wordcloud Make Tool, 2022, version:"1.4"
+(PGS) PythonGUIsupport version:"1.12.84"
 
 zh-CN
 Python Wordcloud Make Tools 中文命令手册：
@@ -42,6 +42,3 @@ Python Wordcloud Make Tools 中文命令手册：
                             pip3 install wordcloud
                             pip3 install alive_progress
                         
-6.团队：
-        貌似......只有一个人。
-看不懂吗？说实话，我自己都不知道我在写什么。
