@@ -1,8 +1,8 @@
 # coding=utf-8
 
 '''2022, A.S.C Team
-(WMT) Wordcloud Make Tool, 2022, version:"1.4"
-(PGS) PythonGUIsupport version:"1.12.84"
+(WMT) Wordcloud Make Tool, 2022, version:"1.4"(Beta-Version)
+(PGS) PythonGUIsupport version:"1.12.84"(Alpha-Version)
 
 zh-CN
 Python Wordcloud Make Tools 中文命令手册：
