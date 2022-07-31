@@ -4,6 +4,8 @@
 (WMT) Wordcloud Make Tool, 2022, version:"1.4"
 (PGS) PythonGUIsupport version:"1.12.84"
 
+希望这个程序对世界有帮助。
+
 zh-CN
 Python Wordcloud Make Tools 中文命令手册：
 这里对部分命令进行简单说明：
