@@ -14,7 +14,9 @@
 
 ## 0.如何运行文件？
 克隆这个存储库后，解压文件，双击run.py
+
 ---
+
 ## 1.Python Wordcloud Make Tools 命令手册：
     wordcloud_make.wordcloud_c(text,widths,heights,os_font_path,m_wors) -->Wordcloud.png
 ### 生成词云图片(中文模式)
