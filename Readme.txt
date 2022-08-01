@@ -1,10 +1,10 @@
 2022, A.S.C Team
-(WMT) Wordcloud Make Tool, 2022, version:"1.4"(Alpha)
-(PGS) PythonGUIsupport version:"1.12.84"(Alpha)
+(WMT) Wordcloud Make Tool, 2022, version:"1.4"
+(PGS) PythonGUIsupport version:"1.12.84"
 
 zh-CN
 Python Wordcloud Make Tools 中文命令手册：
-这里对比较典型的函数进行说明：
+这里对部分命令进行简单说明：
 1. wordcloud_make.wordcloud_c(text,widths,heights,os_font_path,m_words)
     text:即一段文本，以字符串(str)的形式导入到该函数中
     widths:图片宽度，取值范围：1~10000，单位：像素，以整数(int)的形式导入到该函数中。
@@ -13,7 +13,7 @@ Python Wordcloud Make Tools 中文命令手册：
                  以字符串(str)(win或mac)的形式导入到该函数中.                                                      [simhei.ttf]    [PingFang.ttc]                    
     m_words:即max_words,最大字数，如果是制作生日贺卡等，数值越小越好(当然不是0)，如果是阅读书本大概信息或制作大量信息获取，数值越大越好（当然不是无限大），以整数(int)的形式导入到该函数中。
    wordcloud_make.wordcloud_m(text)
-        text:即一段文本，以字符串(str)的形式导入到该函数中
+        ext:即一段文本，以字符串(str)的形式导入到该函数中
 2.stopwords:停用词，在这里输入你不想在词云中看到的词。这个变量存储在import的下面，名字是's'.
 3.统计图生成说明：
     该产品使用的是matplotlib的pyplot.
