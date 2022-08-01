@@ -1,6 +1,6 @@
 # coding=utf-8
 
-'''2022, A.S.C Team
+'''2022, 
 (WMT) Wordcloud Make Tool, 2022, version:"1.4"
 (PGS) PythonGUIsupport version:"1.12.84"
 
@@ -47,7 +47,7 @@ Python Wordcloud Make Tools 中文命令手册：
 
 '''
 import time
-print('2022, A.S.C Team.')
+print('2022,.')
 print('Product coding:utf-8')
 print()
 print('Kernel and technical support:')
@@ -73,7 +73,7 @@ print('Chinese and CMD support:')
 print()
 print('$ about')
 print('CMD Chinese support:')
-print('Made by A.S.C Team, power by A.S.C')
+print('')
 print('2022,A.S.C Team.')
 time.sleep(0.5)
 print()
