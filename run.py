@@ -123,7 +123,6 @@ s = {'的','而','地','得','眼','着','像','也','眼','了','都','里','�
 
 try:
     pyplot.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'simhei']
-    #-[Chinese-Mode]----[local]---------------[MacOS]---------[Windows]
 except:
     print('pyplot:无法导入中文字体，显示中文可能会出错。')
 
