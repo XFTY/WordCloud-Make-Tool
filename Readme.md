@@ -3,12 +3,15 @@
 (WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。
 
 ## 目录：
+0.运行文件  
 1.Python Wordcloud Make Tools 命令手册：  
 2.关于变量"s"(stopwords)的使用说明  
 3.统计图生成说明  
 4.操作系统Python解释器要求  
 5.部分异常处理  
-
+---
+## 0.如何运行文件？
+克隆这个存储库后，解压文件，双击run.py
 ---
 ## 1.Python Wordcloud Make Tools 命令手册：
     wordcloud_make.wordcloud_c(text,widths,heights,os_font_path,m_wors) -->Wordcloud.png
