@@ -9,7 +9,7 @@ Packages/__init__.py
 修复:  
 修复了已知问题和bug。  
 优化:  
-更新用户体验。  
+优化用户体验。  
 最新版本：  
 Kernel:v1.4.35(Alpha)  
 GUI:v1.12.85(Alpha)  
