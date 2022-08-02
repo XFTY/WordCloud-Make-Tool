@@ -28,7 +28,7 @@ GUI:v1.12.85(Alpha)
 
 ---
 ## 1.Python Wordcloud Make Tools 命令手册：  
-详见[wiki:函数的使用说明](https://github.com/XFTY/WordCloud-Make-Tool/wiki/%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E3%80%8A%E4%B9%A6%E3%80%8B)
+详见[wiki:函数的使用说明](https://github.com/XFTY/WordCloud-Make-Tool/wiki/%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
 ---
 ## 2.关于变量"s"(stopwords)的使用说明
