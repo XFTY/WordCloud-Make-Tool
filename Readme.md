@@ -2,7 +2,7 @@
 ## 简介:
 (WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。
 ---
-## 更新  
+## 更新(最新版本)  
 新增：  
 Packages/Packages.py  
 Packages/__init__.py  
