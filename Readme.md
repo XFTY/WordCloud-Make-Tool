@@ -13,7 +13,8 @@ Packages/__init__.py
 最新版本：  
 Kernel:v1.4.35(Alpha)  
 GUI:v1.12.85(Alpha)  
-## 目录：  
+## 目录：
+0.[如何运行文件](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#0%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E6%96%87%E4%BB%B6)
 1.[Python Wordcloud Make Tools 命令手册：](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#1python-wordcloud-make-tools-%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C)    
 2.[关于变量"s"(stopwords)的使用说明](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#2%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8Fsstopwords%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)   
 3.[统计图生成说明](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#3%E7%BB%9F%E8%AE%A1%E5%9B%BE%E7%94%9F%E6%88%90%E8%AF%B4%E6%98%8E)    
