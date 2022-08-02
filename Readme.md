@@ -1,6 +1,10 @@
 # 欢迎使用词云生成工具！  
 ## 简介:
 (WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。
+---
+##当前版本：v1.4.34 v1.12.84
+
+---
 
 ## 目录：
 0.[运行文件](https://github.com/XFTY/WordCloud-Make-Tool/tree/wordcloud-make-tool-Version-v1.4-v1.12.84#0%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E6%96%87%E4%BB%B6)  
