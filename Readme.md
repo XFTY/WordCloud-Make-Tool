@@ -20,6 +20,11 @@ GUI:v1.12.85(Alpha)
 4.[操作系统Python解释器要求](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#4%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8Cpython%E8%A7%A3%E9%87%8A%E5%99%A8%E8%A6%81%E6%B1%82)    
 5.[部分异常处理](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#5%E9%83%A8%E5%88%86%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)    
 
+----
+
+## 0.如何运行文件？
+克隆这个存储库后，解压文件，双击run.py
+
 ---
 ## 1.Python Wordcloud Make Tools 命令手册：
     wordcloud_make.wordcloud_c(text,widths,heights,os_font_path,m_wors) -->Wordcloud.png
