@@ -1,13 +1,24 @@
 # 欢迎使用词云生成工具！  
 ## 简介:
 (WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。
-
-## 目录：
-1.Python Wordcloud Make Tools 命令手册：  
-2.关于变量"s"(stopwords)的使用说明  
-3.统计图生成说明  
-4.操作系统Python解释器要求  
-5.部分异常处理  
+---
+## 更新  
+新增：  
+Packages/Packages.py  
+Packages/__init__.py  
+修复:  
+修复了已知问题和bug。  
+优化:  
+更新用户体验。  
+最新版本：  
+Kernel:v1.4.35(Alpha)  
+GUI:v1.12.85(Alpha)  
+## 目录：  
+1.Python Wordcloud Make Tools 命令手册：    
+2.关于变量"s"(stopwords)的使用说明    
+3.统计图生成说明    
+4.操作系统Python解释器要求    
+5.部分异常处理    
 
 ---
 ## 1.Python Wordcloud Make Tools 命令手册：
