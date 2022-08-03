@@ -3,13 +3,13 @@ import os
 import sys
 import random
 import time
-from matplotlib import pyplot
 from tkinter import messagebox
 from tkinter.ttk import *
 try:
     from alive_progress import alive_bar
     import jieba
     import wordcloud
+    from matplotlib import pyplot
 except:
     if messagebox.askquestion('Warning!','检测到此电脑未安装第三方依赖库，是否需要安装？') == 'yes':
         print('正在安装中文分词库...')
@@ -18,6 +18,8 @@ except:
         os.system('pip3 install wordcloud')
         print('正在安装动态进度条...')
         os.system('pip3 install alive_progress')
+        print('正在安装matplotlib...')
+        os.system('pip install matplotlib')
         messagebox.showinfo('Finish',"安装完成！")
         sys.exit()
     else:
