@@ -5,7 +5,7 @@
 ## 更新(最新版本)  
 新增：  
 Packages/Packages.py  
-Packages/__init__.py  
+Packages/__ __init__ __.py  
 修复:  
 修复了已知问题和bug。  
 优化:  
