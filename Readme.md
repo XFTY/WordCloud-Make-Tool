@@ -53,3 +53,4 @@ Python matplotlib->pyplot默认是无法加载中文字体的，因此需要使�
     pip3 install jieba
     pip3 install wordcloud
     pip3 install alive_progress
+    pip3 install matplotlib
