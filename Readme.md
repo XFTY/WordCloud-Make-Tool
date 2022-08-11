@@ -7,7 +7,8 @@
 Packages/Packages.py  
 Packages/__init__.py  
 修复:  
-修复了已知问题和bug。  
+修复了已知问题和bug。
+对“无法读取文件”进行错误修复更新
 优化:  
 优化用户体验。  
 最新版本：  
