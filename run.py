@@ -89,11 +89,16 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
 import Packages.Packages as Pk
+import os
+
+print()
+print('当前程序运行目录为:',os.getcwd())
+print()
 
 if __name__ == '__main__':
     time.sleep(1)
     print('Starting...')
-    time.sleep(3)
+    time.sleep(1)
     '''
     +=====================================+
     |        Python图形用户界面            
@@ -172,10 +177,9 @@ if __name__ == '__main__':
                 pass  
             if a >= 10000 or b >= 10000:  
                 if messagebox.askquestion('Warning!','图片过大，处理时可能会导致内存溢出，确定要继续吗？') == 'yes':
-                    try:
-                        f = open("text.txt","r",encoding='utf-8')
-                    except FileNotFoundError:
-                        messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
+                    
+                    f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
+                    #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                     try:
                         Pk.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c)
                     except OSError:
@@ -186,10 +190,8 @@ if __name__ == '__main__':
                     finally:
                         f.close()
             else:
-                try:
-                    f = open("text.txt","r",encoding='utf-8')
-                except FileNotFoundError:
-                    messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
+                f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
+                #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
                     Pk.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c)
                 except OSError:
@@ -205,10 +207,8 @@ if __name__ == '__main__':
 
     def run2():
         if messagebox.askquestion("提示","在点击按钮的同时，请确认以准备好了以下数据:\ntext文件（确保以重命名为text.txt）\n若已经准备好了，请按“是”，否则，请按“否”。") == 'yes':
-            try:
-                f2 = open("text.txt",'r',encoding='utf-8')
-            except FileNotFoundError:
-                messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
+            f2 = open(os.getcwd()+'\\'+"text.txt",'r',encoding='utf-8')
+            #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
             try:
                 Pk.wordcloud_make.wordcloud_m(f2.read())
             except FileNotFoundError:
@@ -234,10 +234,8 @@ if __name__ == '__main__':
                 pass  
             if a >= 10000 or b >= 10000:  
                 if messagebox.askquestion('Warning!','图片过大，处理时可能会导致内存溢出，确定要继续吗？') == 'yes':
-                    try:
-                        f = open("text.txt","r",encoding='utf-8')
-                    except FileNotFoundError:
-                        messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
+                    f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
+                    #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                     try:
                         Pk.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c)
                     except OSError:
@@ -247,10 +245,8 @@ if __name__ == '__main__':
                     finally:
                         f.close()
             else:
-                try:
-                    f = open("text.txt","r",encoding='utf-8')
-                except FileNotFoundError:
-                    messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
+                f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
+                #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
                     Pk.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c)
                 except OSError:
