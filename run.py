@@ -88,7 +88,10 @@ print('+=============================================+')
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
-import Packages.Packages as Pk
+try:
+    import Packages.BuildTools as BT
+except:
+    messagebox.showerror('')
 import os
 
 print()
@@ -170,7 +173,7 @@ if __name__ == '__main__':
                 b = int(txt_text_2.get())
                 c = int(txt_text_5.get())
             except:
-                messagebox.showwarning("Exception in Tkinter callback","Traceback (most recent call last):\nInputError: txt.get must be a number,txt.get can not be others or empty!")
+                messagebox.showwarning("str->intERROR","Cannot turn a,b,c(str) to int")
             else:
                 pass
             finally:
@@ -181,7 +184,7 @@ if __name__ == '__main__':
                     f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
                     #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                     try:
-                        Pk.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c)
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c)
                     except OSError:
                         messagebox.showerror('OSError','请选择正确的操作系统')
                     except ValueError:
@@ -193,13 +196,14 @@ if __name__ == '__main__':
                 f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
                 #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
-                    Pk.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c)
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c)
                 except OSError:
                     messagebox.showerror('OSError','请选择正确的操作系统')
                 except ValueError:
                     messagebox.showerror('ValueError','输入正常的数字')
                 finally:
                     f.close()
+        messagebox.showinfo('操作结果:','操作已完成！词云保存在了当前Python程序运行的目录')
 
 
     butt = Button(text='生成词云图',command=run)
@@ -210,11 +214,12 @@ if __name__ == '__main__':
             f2 = open(os.getcwd()+'\\'+"text.txt",'r',encoding='utf-8')
             #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
             try:
-                Pk.wordcloud_make.wordcloud_m(f2.read())
+                BT.wordcloud_make.wordcloud_m(f2.read())
             except FileNotFoundError:
                 messagebox.showerror('文件未找到！','FileNotFoundError!')
     butts = Button(text="生成扇形统计图",command=run2)
     butts.place(x=160,y=220)
+    messagebox.showinfo('操作结果:','操作已完成！词云保存在了当前Python程序运行的目录')
 
     def run3():
         if messagebox.askquestion("提示","在点击按钮的同时，请确认以准备好了以下数据:\ntext文件（确保以重命名为text.txt）\n已选择的目标操作系统\n图片长度，图片宽度，最大字数（一定要是数字！）\n若已经准备好了，请按“是”，否则，请按“否”。") == 'yes':
@@ -237,7 +242,7 @@ if __name__ == '__main__':
                     f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
                     #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                     try:
-                        Pk.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c)
+                        BT.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c)
                     except OSError:
                         messagebox.showerror('OSError','请选择正确的操作系统')
                     except ValueError:
@@ -248,13 +253,14 @@ if __name__ == '__main__':
                 f = open(os.getcwd()+'\\'+"text.txt","r",encoding='utf-8')
                 #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
-                    Pk.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c)
+                    BT.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c)
                 except OSError:
                     messagebox.showerror('OSError','请选择正确的操作系统')
                 except ValueError:
                     messagebox.showerror('ValueError','输入正常的数字')
                 finally:
                     f.close()
+    messagebox.showinfo('操作结果:','操作已完成！词云保存在了当前Python程序运行的目录')
     butts3 = Button(window,text='生成以上两者',command=run3)
     butts3.place(x=160,y=260)
     
