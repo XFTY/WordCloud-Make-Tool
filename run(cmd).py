@@ -5,7 +5,7 @@ import Packages.BuildTools as BT
 import os
 
 print('Wordcloud Make Tool, Version:1.0')
-print('Get more help, Goto (url)')
+print('Get more help, Goto https://github.com/XFTY/WordCloud-Make-Tool/wiki/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E6%9C%AC%E7%9A%84%E8%AF%8D%E4%BA%91%E7%94%9F%E6%88%90%E5%99%A8')
 while True:
     name_object = input('$')
     if 'wordcloud' in name_object:
