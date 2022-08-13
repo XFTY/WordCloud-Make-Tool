@@ -48,8 +48,12 @@ Python matplotlib->pyplot默认是无法加载中文字体的，因此需要使�
 解决方案：  
 1.检查Python解释器是否添加到了系统环境变量中。  
 2.尝试手动安装Python第三方库：  
-在cmd(Windows)/bash(MacOS,not Linux)中依次输入：
+在cmd(Windows)/bash(MacOS)中依次输入：
 
     pip3 install jieba
     pip3 install wordcloud
     pip3 install alive_progress
+
+## 6.使用命令行版本的wordcloud-make-tool
+如果你的电脑无法显示GUI界面，使用命令行版本可以解决这个命令，只需要一行代码、收集一些数据后，即可快速生成。  
+详见[wiki:如何使用命令行版本的wordcloud-make-tool](https://github.com/XFTY/WordCloud-Make-Tool/wiki/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E6%9C%AC%E7%9A%84%E8%AF%8D%E4%BA%91%E7%94%9F%E6%88%90%E5%99%A8)
