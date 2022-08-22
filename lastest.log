@@ -1,0 +1,8 @@
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'time' is imported
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter' is imported
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter' is imported
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter.messagebox' is imported
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter.ttk' is imported
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'sys' is imported
+2022-08-22 19:32:27 - root - INFO      - run.py   : 'BuildTools' is imported
+2022-08-22 19:32:28 - root - INFO      - run.py   : starting GUI...
