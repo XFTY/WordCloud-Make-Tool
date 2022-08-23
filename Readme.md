@@ -2,17 +2,9 @@
 ## 简介:
 (WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。
 ---
-## 更新(最新版本)  
-新增：  
-Packages/Packages.py  
-Packages/__init__.py  
-修复:  
-修复了已知问题和bug。  
-优化:  
-优化用户体验。  
-最新版本：  
-Kernel:v1.4.35(Alpha)  
-GUI:v1.12.85(Alpha)  
+## 警告！DEV版本！  
+DEV版本包含许多不稳定和测试阶段的工具，不建议使用！  
+请回到上一个版本：v1.4  
 ## 目录：
 0.[如何运行文件](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#0%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E6%96%87%E4%BB%B6)  
 1.[Python Wordcloud Make Tools 命令手册：](https://github.com/XFTY/WordCloud-Make-Tool/blob/main/Readme.md#1python-wordcloud-make-tools-%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C)    
