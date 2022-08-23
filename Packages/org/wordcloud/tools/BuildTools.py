@@ -3,7 +3,7 @@ import logging
 logging.basicConfig(
                     level=logging.INFO,
                     filename='demo\demo.log',
-                    filemode='a',
+                    filemode='w',
                     format="%(asctime)s - %(name)s - %(levelname)-9s - %(filename)-8s : %(message)s",
                     datefmt="%Y-%m-%d %H:%M:%S."
                     )
