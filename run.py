@@ -45,6 +45,7 @@ Python Wordcloud Make Tools 中文命令手册：
                         
 
 '''
+from lib2to3.pgen2.token import *
 import logging
 logging.basicConfig(level=logging.INFO, 
                     filename="lastest.log",
@@ -141,7 +142,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
     selected = IntVar()
 
     window.title('Wordcloud')
-    window.geometry('256x360')
+    window.geometry('256x400')
 
     text_read_title = Label(window,text='WordCloud Tool',font=("Arial Bold",20))
     text_read_title.place(x=10,y=0)
@@ -149,7 +150,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
     text_ = Label(window,text='导出->')
     text_.place(x=100,y=230)
 
-    text_read = Label(window,text='当前文件目录:') #在V1.4之后，text_read2的控件。
+    text_read = Label(window,text='当前txt文件目录:')
     text_read.place(x=10,y=35)
 
     #text_read2 = Label(window,text='只需将txt文件重命名为text.txt即可')
@@ -184,6 +185,10 @@ if __name__ == '__main__': # 因此程序不能被导入！
     text_vaule = Label(window,text='图片导出设置')
     text_vaule.place(x=10,y=130)
 
+    show_file_path = Entry(master=window,width=20)
+    show_file_path.place(x=10,y=57)
+    show_file_path.insert(STRING,'None(未选择)')
+
     logging.info("loading susscessfully!")
 
     #text_vaule_place = Label(window,text='------------')
@@ -192,22 +197,19 @@ if __name__ == '__main__': # 因此程序不能被导入！
     cb_var = tkinter.IntVar()
 
     checkbutt = Checkbutton(window,text='重复文章词语(repeat)',variable=cb_var,onvalue=True,offvalue=False)
-    checkbutt.place(x=10,y=320)
+    checkbutt.place(x=10,y=360)
 
-    path_ = []
-    path = ''
 
     def askopenfiletxtpath():
-        _path = askopenfilename(title='选择一个txt文件',initialdir=os.getcwd(),filetypes=[('txt files','*.txt'),('all files','*')])
-        if path_ == []:
-            path_.append(_path)
-            print(_path)
+        global txtpath
+        txtpath = askopenfilename(title='Choose a txt files',initialdir=os.getcwd(),filetypes=[('txt files(UTF-8)','*txt'),('all files','*')])
+        if txtpath == '':
+            show_file_path.delete(0,END)
+            show_file_path.insert(STRING,'None(未选择)')
         else:
-            path_.clear()
-            path_.append(_path)
-            print(_path)
-        #text_read.configure(window,text='当前文件目录:'+path)
-        path.join(path_)
+            show_file_path.delete(0,END)
+            show_file_path.insert(STRING,txtpath)
+        #return txtpath
     
 
     getfilepathbutt = Button(window,text='选择',command=askopenfiletxtpath)
@@ -233,7 +235,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
                 pass  
             if a >= 10000 or b >= 10000:  
                 if messagebox.askquestion('Warning!','图片过大，处理时可能会导致内存溢出，确定要继续吗？') == 'yes':
-                    f = open(path,encoding='utf-8')
+                    f = open(txtpath,encoding='utf-8')
                     #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                     try:
                         BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
@@ -245,7 +247,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
                     finally:
                         f.close()
             else:
-                f = open(path,"r",encoding='utf-8')
+                f = open(txtpath,"r",encoding='utf-8')
                 #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
                     BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
@@ -264,7 +266,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
 
     def run2(): 
         if messagebox.askquestion("提示","在点击按钮的同时，请确认以准备好了以下数据:\ntext文件（确保以重命名为text.txt）\n若已经准备好了，请按“是”，否则，请按“否”。") == 'yes':
-            f2 = open(path,'r',encoding='utf-8')
+            f2 = open(txtpath,'r',encoding='utf-8')
             #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
             try:
                 BT.wordcloud_make.wordcloud_m(f2.read())
@@ -293,7 +295,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
                 pass  
             if a >= 10000 or b >= 10000:  
                 if messagebox.askquestion('Warning!','图片过大，处理时可能会导致内存溢出，确定要继续吗？') == 'yes':
-                    f = open(path,"r",encoding='utf-8')
+                    f = open(txtpath,"r",encoding='utf-8')
                     #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                     try:
                         BT.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c,cb_var)
@@ -304,7 +306,7 @@ if __name__ == '__main__': # 因此程序不能被导入！
                     finally:
                         f.close()
             else:
-                f = open(path,"r",encoding='utf-8')
+                f = open(txtpath,"r",encoding='utf-8')
                 #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
                     BT.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c,cb_var)
@@ -317,5 +319,15 @@ if __name__ == '__main__': # 因此程序不能被导入！
                     f.close()
     butts3 = Button(window,text='生成以上两者',command=run3)
     butts3.place(x=160,y=260)
-    
+
+    menu = Menu(window,tearoff=False)
+    menu.add_command(label='复制(Ctrl+C)                ')
+    menu.add_command(label='粘贴(Ctrl+V)                ')
+    menu.add_command(label='功能测试中......')
+
+    def menus(self):
+        menu.post(self.x_root, self.y_root)
+
+    window.bind("<Button-3>",menus)
+
     window.mainloop()

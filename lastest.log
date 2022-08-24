@@ -1,8 +1,16 @@
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'time' is imported
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter' is imported
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter' is imported
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter.messagebox' is imported
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'tkinter.ttk' is imported
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'sys' is imported
-2022-08-22 19:32:27 - root - INFO      - run.py   : 'BuildTools' is imported
-2022-08-22 19:32:28 - root - INFO      - run.py   : starting GUI...
+2022-08-24 08:02:46 - root - INFO      - run.py   : 'time' is imported
+2022-08-24 08:02:46 - root - INFO      - run.py   : 'tkinter' is imported
+2022-08-24 08:02:46 - root - INFO      - run.py   : 'tkinter' is imported
+2022-08-24 08:02:46 - root - INFO      - run.py   : 'tkinter.messagebox' is imported
+2022-08-24 08:02:46 - root - INFO      - run.py   : 'tkinter.ttk' is imported
+2022-08-24 08:02:46 - root - INFO      - run.py   : 'sys' is imported
+2022-08-24 08:02:47 - root - INFO      - run.py   : 'BuildTools' is imported
+2022-08-24 08:02:48 - root - INFO      - run.py   : starting GUI...
+2022-08-24 08:02:49 - root - INFO      - run.py   : loading susscessfully!
+2022-08-24 08:03:18 - root - INFO      - run.py   : 
+on 0: 2022-08-24 08:03:18 - jieba - DEBUG     - __init__.py : Building prefix dict from the default dictionary ...
+on 0: 2022-08-24 08:03:18 - jieba - DEBUG     - __init__.py : Loading model from cache C:\Users\Steve\AppData\Local\Temp\jieba.cache
+on 0: 2022-08-24 08:03:18 - jieba - DEBUG     - __init__.py : Loading model cost 0.307 seconds.
+on 0: 2022-08-24 08:03:18 - jieba - DEBUG     - __init__.py : Prefix dict has been built successfully.
+2022-08-24 08:06:23 - root - INFO      - run.py   : 
+2022-08-24 08:06:52 - root - INFO      - run.py   : 
