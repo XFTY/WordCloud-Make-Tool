@@ -1,6 +1,7 @@
 # 欢迎使用词云生成工具！  
 ## 简介:
-(WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。
+(WMT)WordCloud Make Tools 可以帮助你快速了解文章信息的一种工具。  
+这个项目基于wordcloud和jieba
 ---
 ## 更新(最新版本)  
 新增：  
