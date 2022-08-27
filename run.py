@@ -121,7 +121,7 @@ print()
 print('当前程序运行目录为:',os.getcwd())
 print()
 
-__version__ = '1.5-dev'
+__version__ = '1.5.1-dev'
 
 if platform.python_version() <= '3.6':
     messagebox.showerror('error!','Python解释器版本过低！\n请使用Python3.6+的版本')
