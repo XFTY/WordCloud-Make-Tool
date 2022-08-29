@@ -2,8 +2,8 @@
 import logging
 logging.basicConfig(
                     level=logging.INFO,
-                    filename='demo\demo.log',
-                    filemode='w',
+                    filename='demo.log',
+                    filemode='a',
                     format="%(asctime)s - %(name)s - %(levelname)-9s - %(filename)-8s : %(message)s",
                     datefmt="%Y-%m-%d %H:%M:%S."
                     )
@@ -33,6 +33,8 @@ except:
 finally:
     print('第三方依赖库设置完成!')
 
+stopwords = None
+
 s = {'的','而','地','得','眼','着','像','也','眼','了','都','里','在','叫','是起来','我','你','他','她','它',',','.','起来','有','和','刚','闹','呀','吗','啦','跟','风','人','唱','手','脚','脚皮','各','些','闭','多','二','看','说','恼','躺平','摆烂','是','花'}
 
 try:
@@ -40,13 +42,17 @@ try:
 except:
     print('pyplot:无法导入中文字体，显示中文可能会出错。')
 
-background_color = ['black','white','brown','blue','pink','gold']
-colormap = ['gnuplot','plasma','prism','hsv','rainbow','Blues']
+background_colors = ['black','white','brown','blue','pink','gold']
+colormaps = ['gnuplot','plasma','prism','hsv','rainbow','Blues']
 
 class wordcloud_make():
-    def wordcloud_c(text,widths,heights,os_font_path,m_wors,rep):
+    def wordcloud_c(text:str,widths:int,heights:int,os_font_path:str,m_wors:int,rep:bool,background_color=random.shuffle(background_colors),colormap=random.shuffle(colormaps))->None:
         '''生成词云图片（中文模式）'''
         with alive_bar(len(range(4)),title=f'Running txt->wordcloud.png') as bar:
+            if isinstance(background_color,list):
+                background_color = background_color[0]
+            if isinstance(colormap,list):
+                colormap = colormap[0]
             lst = jieba.lcut(text)
             m = ' '.join(lst)
             print('running...')
@@ -54,22 +60,15 @@ class wordcloud_make():
             bar()
             #mac = 'PingFang.ttc'
             #win = 'simhei.ttf'
-            if os_font_path == 'win' or os_font_path == 'windows':
-                os_font_path = 'simhei.ttf'
-            elif os_font_path == 'mac' or os_font_path == 'macintosh':
-                os_font_path = 'PingFang.ttc'
-                print('OS write finish')
             bar()
-            random.shuffle(background_color)
-            random.shuffle(colormap)
             w = wordcloud.WordCloud(
                                     width=widths,
-                                    height=heights, 
-                                    font_path=os_font_path,
-                                    stopwords=s,
-                                    background_color=background_color[0],
-                                    colormap=colormap[0],
-                                    max_words=m_wors,
+                                height=heights, 
+                           font_path=os_font_path,
+                        stopwords=s,
+                    background_color=background_color,
+                        colormap=colormap,
+                                max_words=m_wors,
                                     repeat=rep
                                     )
             print('准备生成词云文件')
@@ -97,16 +96,18 @@ class wordcloud_make():
                 time.sleep(0.001)
 
     
-    def wordcloud_e(text,widths,heights,m_words,rep):
+    def wordcloud_e(text:str,widths:int,heights:int,m_words:int,rep:bool,background_color=random.shuffle(background_colors),colormap=random.shuffle(colormaps))->None:
         '''生成词云图片(English)'''
-        random.shuffle(background_color)
-        random.shuffle(colormap)
+        if isinstance(background_color,list):
+            background_color = background_color[0]
+        if isinstance(colormap,list):
+            colormap = colormap[0]
         we = wordcloud.WordCloud(
                                 width=widths,
-                                height=heights,
-                                background_color=background_color[0],
-                                colormap=colormap[0],
-                                max_words=m_words,
+                            height=heights,
+                          background_color=background_color,
+                    colormap=colormap,
+                          max_words=m_words,
                                 repeat=rep
                                 )
 
@@ -116,8 +117,12 @@ class wordcloud_make():
         #pe = Image.open('wordcloud.png')
         #pe.show()
 
-    def wordcloud_cm(text,widths,heights,os_font_path,m_wors,rep):
+    def wordcloud_cm(text:str,widths:int,heights:int,os_font_path:int,m_wors:int,rep:bool,background_color=random.shuffle(background_colors),colormap=random.shuffle(colormaps))->None:
         with alive_bar(len(range(10)),title=f'Running text -> Wordcloud.png/~[?:?]') as bar:
+            if isinstance(background_color,list):
+                background_color = background_color[0]
+            if isinstance(colormap,list):
+                colormap = colormap[0]
             start = time.time()
             print('Start Running......')
             bar()
@@ -139,22 +144,16 @@ class wordcloud_make():
             del resoult
             #mac = 'PingFang.ttc'
             #win = 'simhei.ttf'
-            if os_font_path == 'win' or os_font_path == 'windows':
-                os_font_path = 'simhei.ttf'
-            elif os_font_path == 'mac' or os_font_path == 'macintosh':
-                os_font_path = 'PingFang.ttc'
             print('字体选择成功完成')
             bar()
-            random.shuffle(background_color)
-            random.shuffle(colormap)
             bar()
             w = wordcloud.WordCloud(
                                     width=widths,
                                     height=heights,
                                     font_path=os_font_path,
                                     stopwords=s,
-                                    background_color=background_color[0],
-                                    colormap=colormap[0],
+                                    background_color=background_color,
+                                    colormap=colormap,
                                     max_words=m_wors,
                                     repeat=rep
                                     )
@@ -187,7 +186,7 @@ class wordcloud_make():
                 t()
                 time.sleep(0.001)
         pyplot.show()
-    def wordcloud_m(text):
+    def wordcloud_m(text:str)->None:
         start = time.time()
         '''生成扇形统计图'''
         lst = jieba.lcut(text)
