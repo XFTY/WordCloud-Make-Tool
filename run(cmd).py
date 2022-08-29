@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import sys
-import Packages.BuildTools as BT
+import Packages.org.wordcloud.tools.BuildTools as BT
 import os
 
 print('Wordcloud Make Tool, Version:1.0')

@@ -104,9 +104,11 @@ from tkinter.ttk import *
 import os
 import sys
 import platform
+import __future__
 
 try:
     import Packages.org.wordcloud.tools.BuildTools as BT
+    import Packages.org.Senior.GUI.__seniortk__ as senior
 except Exception as e:
     print(e)
     logging.error("Cannot import kernel: Packages.BuildTools")
@@ -123,38 +125,54 @@ print()
 
 __version__ = '1.5.1-dev'
 
-if platform.python_version() <= '3.6':
-    messagebox.showerror('error!','Python解释器版本过低！\n请使用Python3.6+的版本')
-    sys.exit(1)
+fontvar = senior.fontvar
+path_ = fontvar
+
+if platform.python_version() >= '3.6':
+    messagebox.showerror('error!','Python解释器版本过低！\n请使用Python3.6及以上版本')
+    logging.error('LowPythonVersion:'+platform.python_version())
+    sys.exit('LowPythonVersion:'+platform.python_version())
 
 def run():
+    global path_
     #butt.configure(text='生成中...')
-    if messagebox.askquestion("提示","在点击按钮的同时，请确认以准备好了以下数据:\ntext文件（确保以重命名为text.txt）\n已选择的目标操作系统\n图片长度，图片宽度，最大字数（一定要是数字！）\n若已经准备好了，请按“是”，否则，请按“否”。") == 'yes':
+    if messagebox.askquestion("提示","在点击按钮的同时，请确认以准备好了以下数据:\ntext文件（确保以重命名为text.txt）\n已选择的目标操作系统\n图片长度，图片宽度，最大字数（一定要是数字！）\n若已经准备好了，请按“是”，否则，请按“否”。") == 'yes':        
+        global bvar,fvar
+        bvar = senior.bvar
+        fvar = senior.fvar
         if selected.get() == 1:
             path_ = 'win'
         if selected.get() == 2:
             path_ = 'mac'
-        logging.info("")
+        path_ = fontvar
         try:
             a = int(txt_text.get())
             b = int(txt_text_2.get())
             c = int(txt_text_5.get())
         except:
-            messagebox.showwarning("str->intERROR","Cannot turn a,b,c(str) to int")
-        else:
-            pass
-        finally:
-            pass  
+            messagebox.showwarning("str->intERROR","Cannot turn a,b,c(str) to int") 
         if a >= 10000 or b >= 10000:  
             if messagebox.askquestion('Warning!','图片过大，处理时可能会导致内存溢出，确定要继续吗？') == 'yes':
                 f = open(txtpath,encoding='utf-8')
                 #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
-                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
+                    if bvar == 'random' and fvar != 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                    elif bvar == 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,colormap=fvar)
+                    elif fvar == 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                    elif fvar == 'random' and bvar == 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
+                    else:
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar,fvar)
                 except OSError:
                     messagebox.showerror('OSError','请选择正确的操作系统')
-                except ValueError:
+                except ValueError as e:
+                    print(e)
                     messagebox.showerror('ValueError','输入正常的数字')
+                except FileNotFoundError:
+                    messagebox.showerror('文件未找到！','FileNotFoundError!')
                 
                 finally:
                     f.close()
@@ -162,12 +180,25 @@ def run():
             f = open(txtpath,"r",encoding='utf-8')
             #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
             try:
-                BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
+                if bvar == 'random' and fvar != 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                elif bvar == 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,colormap=fvar)
+                elif fvar == 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                elif fvar == 'random' and bvar == 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
+                else:
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar,fvar)
             except OSError as e:
                 messagebox.showerror('OSError','请选择正确的操作系统')
                 logging.exception(e)
-            except ValueError:
+            except ValueError as e:
+                print(e)
                 messagebox.showerror('ValueError','输入正常的数字')
+
+            except FileNotFoundError:
+                messagebox.showerror('文件未找到！','FileNotFoundError!')
             finally:
                 f.close()
     messagebox.showinfo('操作结果:','操作已完成！词云保存在了当前Python程序运行的目录')
@@ -185,6 +216,9 @@ def run2():
 
 
 def run3():
+    global bvar,fvar,path_
+    bvar = senior.bvar
+    fvar = senior.fvar
     if messagebox.askquestion("提示","在点击按钮的同时，请确认以准备好了以下数据:\ntext文件（确保以重命名为text.txt）\n已选择的目标操作系统\n图片长度，图片宽度，最大字数（一定要是数字！）\n若已经准备好了，请按“是”，否则，请按“否”。") == 'yes':
         if selected.get() == 1:
             path_ = 'win'
@@ -196,32 +230,50 @@ def run3():
             c = int(txt_text_5.get())
         except Exception:
             messagebox.showwarning("Exception in Tkinter callback","Traceback (most recent call last):\nInputError: txt.get must be a number,txt.get can not be others or empty!")
-        else:
-            pass
-        finally:
-            pass  
         if a >= 10000 or b >= 10000:  
             if messagebox.askquestion('Warning!','图片过大，处理时可能会导致内存溢出，确定要继续吗？') == 'yes':
                 f = open(txtpath,"r",encoding='utf-8')
                 #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
                 try:
-                    BT.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c,cb_var)
+                    if bvar == 'random' and fvar != 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                    elif bvar == 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,colormap=fvar)
+                    elif fvar == 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                    elif fvar == 'random' and bvar == 'random':
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
+                    else:
+                        BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar,fvar)
                 except OSError:
                     messagebox.showerror('OSError','请选择正确的操作系统')
                 except ValueError:
                     messagebox.showerror('ValueError','输入正常的数字')
+                except FileNotFoundError:
+                    messagebox.showerror('文件未找到！','FileNotFoundError!')
                 finally:
                     f.close()
         else:
             f = open(txtpath,"r",encoding='utf-8')
             #messagebox.showerror('FileNotFoundError!','未找到文件,确保txt文件在和运行的Python文件在同一目录下，并重命名为text.txt')
             try:
-                BT.wordcloud_make.wordcloud_cm(f.read(),a,b,path_,c,cb_var)
+                if bvar == 'random' and fvar != 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                elif bvar == 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,colormap=fvar)
+                elif fvar == 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar)
+                elif fvar == 'random' and bvar == 'random':
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var)
+                else:
+                    BT.wordcloud_make.wordcloud_c(f.read(),a,b,path_,c,cb_var,bvar,fvar)
                 messagebox.showinfo('操作结果:','操作已完成！词云保存在了当前Python程序运行的目录')
             except OSError:
                 messagebox.showerror('OSError','请选择正确的操作系统')
             except ValueError:
                 messagebox.showerror('ValueError','输入正常的数字')
+            except FileNotFoundError:
+                    messagebox.showerror('文件未找到！','FileNotFoundError!')
             finally:
                 f.close()
 
@@ -272,13 +324,16 @@ if __name__ == '__main__': # 因此程序不能被导入！
     #text_read2 = Label(window,text='只需将txt文件重命名为text.txt即可')
     #text_read2.place(x=10,y=60)
 
-    text_read_3 = Label(window,text='选择目标操作系统:')
+    text_read_3 = Label(window,text='选择字体:')
     text_read_3.place(x=10,y=80)
 
-    rad1 = Radiobutton(window,text='Win',value=1,variable=selected)
-    rad2 = Radiobutton(window,text='Mac',value=2,variable=selected)
-    rad1.place(x=10,y=100)
-    rad2.place(x=100,y=100)
+    tops = Label(window,text="该设置转移到了'高级'设置中! 默认值:simhei")
+    tops.place(x=10,y=100)
+
+    rad1 = Radiobutton(window,text='Win',value=1,variable=selected)#该控件以弃用
+    rad2 = Radiobutton(window,text='Mac',value=2,variable=selected)#同上
+    #rad1.place(x=10,y=100)
+    #rad2.place(x=100,y=100)
 
     text_read_2 = Label(window,text='图片长度:')
     text_read_2.place(x=10,y=160)
@@ -326,6 +381,9 @@ if __name__ == '__main__': # 因此程序不能被导入！
 
     butts3 = Button(window,text='生成以上两者',command=run3)
     butts3.place(x=160,y=260)
+
+    butts4 = Button(window,text='高级',command=senior.main)
+    butts4.place(x=78,y=325)
 
     menu = Menu(window,tearoff=False)
     menu.add_command(label='复制(Ctrl+C)                ')
